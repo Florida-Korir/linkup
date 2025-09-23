@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
     $username = $_POST['username'];
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $_SESSION['username'] = $username;
      }
      mysqli_stmt_close($stmt);
-     header("Location: ../linkup.php");
+     header("Location: ../registration/login/login.php");
     }
     catch(mysqli_sql_exception $e)
     {
