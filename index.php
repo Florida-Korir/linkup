@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <h1>Sign up Form</h1>
-        <form action="includes/formhandler.php" method="POST">
+        <form action="includes/Signupformhandler.php" method="POST">
             <input type="text" name="username" placeholder="Username" required>
             <br>
             <br>

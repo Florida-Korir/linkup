@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_stmt_fetch($stmt)) {
             if (password_verify($password, $db_passwordHash)) {
                 $_SESSION['username'] = $db_username;
-                header("Location: ../../profile.php");
+                header("Location: ../profile.php");
                 exit();
             } else {
                 echo " Invalid password.";
