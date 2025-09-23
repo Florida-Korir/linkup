@@ -1,7 +1,12 @@
 <?php
-include 'formhandler.php';
+session_start();
+echo "Hi" . htmlspecialchars($_SESSION['username']);
+?>
 
-echo "<h2>Registration Successful!</h2>";
-echo "<p>Welcome, " . htmlspecialchars($username) . "!</p>";
-
+// if (isset($_SESSION['username'])) {
+//     echo "Hi " . htmlspecialchars($_SESSION['username']);
+//     // unset($_SESSION['username']); // optional: clear after showing once
+// } else {
+//     echo "Welcome to Linkup!";
+// }
 ?>

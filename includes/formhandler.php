@@ -1,5 +1,7 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+var_dump($_POST);
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
@@ -11,15 +13,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $stmt = mysqli_prepare($conn, $Query);
      mysqli_stmt_bind_param($stmt, "sss", $username, $passwordHash, $email);
      mysqli_stmt_execute($stmt);
-     header("Location: linkup.php");
+     if(mysqli_stmt_execute($stmt)){
+        session_start();
+        $_SESSION['username'] = $username;
+     }
+     header("Location: ../linkup.php");
      mysqli_stmt_close($stmt);
     }
-catch(mysqli_sql_exception)
+    catch(mysqli_sql_exception $e)
     {
-    echo "Connection failed: ";
+        echo "Error: " . $e->getMessage();
     }
 
-} else {
-    header("Location: index.php");
+} 
+else 
+{
+    echo "Invalid request method.";
+    // header("Location: ../linkup.php");
     exit();
 }

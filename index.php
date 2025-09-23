@@ -12,8 +12,8 @@
 </head>                                                   
 <body>
     <div class="container">
-        <h1>Login Form</h1>
-        <form action="includes/formhandler.php" method="post">
+        <h1>Sign up Form</h1>
+        <form action="includes/formhandler.php" method="POST">
             <input type="text" name="username" placeholder="Username" required>
             <br>
             <br>
@@ -21,6 +21,6 @@
             <br>
             <br>
             <input type="email" name="email" placeholder="Email" required>
-            <button type="submit" name="submit">Login</button>
+            <button type="submit" name="submit">Sign Up</button>
         </form>
     </div>
