@@ -17,8 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         session_start();
         $_SESSION['username'] = $username;
      }
-     header("Location: ../linkup.php");
      mysqli_stmt_close($stmt);
+     header("Location: ../linkup.php");
     }
     catch(mysqli_sql_exception $e)
     {

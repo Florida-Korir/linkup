@@ -21,6 +21,8 @@
             <br>
             <br>
             <input type="email" name="email" placeholder="Email" required>
+            <br>
+            <br>
             <button type="submit" name="submit">Sign Up</button>
         </form>
     </div>
