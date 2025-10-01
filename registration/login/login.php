@@ -9,9 +9,9 @@
 </head>                                                   
 <body>
     <div class="container">
-        <h1>Login</h1>
+        <h1>Log in</h1>
         <form action="../../includes/loginformhandler.php" method="POST">
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="username" placeholder="Username/Email" required>
             <br>
             <br>
             <input type="password" name="password" placeholder="Password" required>

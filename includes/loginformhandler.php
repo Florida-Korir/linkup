@@ -5,8 +5,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
     try {
         require_once '../database.php';
+        require_once 'functions.php';
+
+        if(emptyInputLogin($username, $password) !== false) {
+        header("location: ../login.php?error=emptyinput");
+        exit();
+    }
 
         if (!$conn) {
             die("Database connection failed: " . mysqli_connect_error());
@@ -20,10 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $db_username, $db_passwordHash);
+
+        mysqli_stmt_bind_result($stmt, $username, $password);
 
         if (mysqli_stmt_fetch($stmt)) {
-            if (password_verify($password, $db_passwordHash)) {
+            if (password_verify($password, $passwordHash)) {
                 $_SESSION['username'] = $db_username;
                 header("Location: ../profile.php");
                 exit();
