@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         header("location: ../index.php?error=usernameexists");
         exit();
     }
-
+                                    
     try {
     //  require_once '../database.php';
      $Query = "INSERT INTO users (username, password, email) VALUES (?, ?, ?);";

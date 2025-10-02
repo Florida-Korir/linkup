@@ -18,6 +18,7 @@ function invalidusername($username){
         $result = false;    
     }
     return $result;
+
 }
 function invalidemail($email){
     $result;
@@ -30,7 +31,7 @@ function invalidemail($email){
 }
 function passwordLength($passwordLength){
     $result;
-    if ($passwordLength < 8) {
+    if (strlen($passwordLength) < 8) {
         $result = true;
     } else {
         $result = false;    
@@ -57,14 +58,13 @@ function userExist($conn, $username, $email){
     mysqli_stmt_execute($stmt);
     $resultData = mysqli_stmt_get_result($stmt);
     if ($row = mysqli_fetch_assoc($resultData)){
+    mysqli_stmt_close($stmt);
     return $row;
    }
     else{
         $result = false;
         return $result;
     }
-    mysqli_stmt_close($stmt);
-
 }
 
 function emptyInputLogin($username, $password){
